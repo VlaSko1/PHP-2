@@ -1,0 +1,1 @@
+This will be laid out homework for the course PHP 2 from GeekBrains.
