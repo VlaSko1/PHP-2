@@ -35,7 +35,8 @@ abstract class  Controller
                 'menu' => $this->renderTemplate('menu', [
                     'count' => App::call()->basketRepository->getCountWhere('session_id', session_id()),
                     'auth' => App::call()->userRepository->isAuth(),
-                    'username' => App::call()->userRepository->getName()
+                    'username' => App::call()->userRepository->getName(),
+                    'admin' => App::call()->userRepository->isAdmin()
                 ]),
                 'content' => $this->renderTemplate($template, $params)
             ]);

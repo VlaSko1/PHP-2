@@ -56,7 +56,6 @@ class Db
         $pdoStatement = $this->query($sql, $params);
 
         $pdoStatement->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, $class);
-
         return $pdoStatement->fetch();
     }
 

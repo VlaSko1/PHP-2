@@ -1,6 +1,5 @@
 {
     "require": {
-        "twig/twig": "^2.0",
         "phpunit/phpunit": "^8.5"
     },
     "autoload": {

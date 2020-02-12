@@ -16,7 +16,7 @@ use app\traits\TSingletone;
  * @property Request $request
  * @property FeedbackRepository $feedbackRepository
  * @property BasketRepository $basketRepository
- * @property UserRepository $usersRepository
+ * @property UserRepository $userRepository
  * @property ProductRepository $productRepository
  * @property OrderRepository $orderRepository
  * @property Db $db

@@ -7,20 +7,23 @@ class Users extends Model
     protected $id = null;
     protected $login;
     protected $pass;
-    protected $hash;
+    protected $hash = null;
+    protected $access;
 
 
     protected $props = [
         'login' => false,
         'pass' => false,
-        'hash' => false
+        'hash' => false,
+        'access' => false
     ];
 
 
-    public function __construct($login = null, $pass = null)
+    public function __construct($login = null, $pass = null, $access = null)
     {
         $this->login = $login;
         $this->pass = $pass;
+        $this->access = $access;
     }
 
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace app\models\repositories;
-
+use app\engine\App;
 use app\models\entities\Users;
 use app\models\Repository;
 
@@ -38,7 +38,7 @@ class UserRepository extends Repository
         $id = (int)$_SESSION['id'];
         $user = $this->getOne($id);
         $user->hash = $hash;
-        (new UserRepository())->save($user);
+        App::call()->userRepository->save($user);
         setcookie("hash", $hash, time() + 36000, '/');
     }
 
@@ -48,5 +48,19 @@ class UserRepository extends Repository
     }
     public function getEntityClass() {
         return Users::class;
+    }
+    // Проверка на админа
+    function isAdmin() {
+        if(!$this->isAuth()) return false;
+        $login = $_SESSION['login'];
+        $loginDb = App::call()->userRepository->getOneWhere('login', $login);
+
+        if ($loginDb->access === 'administrator') {
+
+            return true;
+        } else {
+
+            return false;
+        }
     }
 }
